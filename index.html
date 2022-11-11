@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="container" style="display: flex; flex-wrap: wrap; width: 1200px"></div>
+
+    <script>
+        const xhr = new XMLHttpRequest();
+        xhr.addEventListener("load", function () {
+        let actor = JSON.parse(this.responseText);
+    
+    for (let i=0; i<actor.length; i++){
+        let div = document.createElement('div')
+        div.style.marginRight = '20px'
+        const actorName = actor[i].name;
+        const actorImage = actor[i].img;
+        div.innerHTML=`<p>${actorName}</p>` + `<img src='${actorImage}' alt='image' width=auto height=300>`
+        const name = document.getElementById('container');
+        container.appendChild(div)
+    }
+    
+    
+})
+xhr.open("GET", "https://www.breakingbadapi.com/api/characters");
+xhr.send();
+    </script>
+</body>
+</html>
