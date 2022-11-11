@@ -10,5 +10,26 @@
     <div id="container">
         <input id="add-item-btn" type="button" value="+">
     </div>
+
+    <script>
+        let button= document.getElementById('add-item-btn');
+        button.onclick = function(){
+            const div = document.createElement('div')
+            div.id = "modal"
+            div.textContent = 'Любой текст'
+            container.appendChild(div)
+            let modal= document.getElementById('modal');
+            const btn = document.createElement('button')
+            btn.innerHTML = "<p style='width: 15px, height: 15px'>Close</p>"
+            btn.id = "modal-btn"
+            modal.appendChild(btn)
+            let buttonModal= document.getElementById('modal-btn');
+            buttonModal.onclick = setTimeout(function(){
+            const div = document.getElementById('modal')
+            div.style.display='none'
+        }, 5000);
+        }
+        
+    </script>
 </body>
 </html>
